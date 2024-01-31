@@ -10,3 +10,6 @@ def student_details(request, pk):
 
 def home(request):
     return render(request, "home.html")
+
+def about(request):
+    return render(request, "about.html")
