@@ -7,3 +7,6 @@ def index(request):
 
 def student_details(request, pk):
     return HttpResponse(f"Details Page id of {pk}")
+
+def home(request):
+    return render(request, "home.html")
