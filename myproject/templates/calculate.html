@@ -1,6 +1,7 @@
 <h1>Calculator</h1>
 
-<form action="result" method="get">
+<form action="result" method="post">
+  {% csrf_token %}
   <label for="numl">First Number</label>
   <input type="number" name="num1" id="num1" />
   <br />
