@@ -23,3 +23,21 @@ def calculate(request):
 
 def notfound(request):
     print(request)
+
+
+def result(request):
+    first_num = request.GET["num1"]
+    second_num = request.GET["num2"]
+    op = request.GET["oprator"]
+    op_match = {
+        "plus": "+",
+        "minus": "-",
+        "divide": "/",
+        "mutiply": "*"
+    }
+    data = f"{first_num}{op_match[op]}{second_num}"
+    result = eval(data)
+    context = {
+        "result": result
+    }
+    return render(request, "result.html", context)
