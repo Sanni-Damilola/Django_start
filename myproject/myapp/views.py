@@ -4,3 +4,6 @@ from django.http.response import HttpResponse
 # Create your views here.
 def index(request):
     return HttpResponse("Hello")
+
+def student_details(request, pk):
+    return HttpResponse(f"Details Page id of {pk}")
