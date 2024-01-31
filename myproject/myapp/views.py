@@ -1,7 +1,30 @@
 from django.shortcuts import render
 from django.http.response import HttpResponse
+from django.views import View
 
 # Create your views here.
+
+class Result(View):
+    def get(self, request):
+     return HttpResponse("Not A Post Rquest")
+
+    def post(self, request):
+            first_num = request.POST["num1"]
+            second_num = request.POST["num2"]
+            op = request.POST["oprator"]
+            op_match = {
+                "plus": "+",
+                "minus": "-",
+                "divide": "/",
+                "mutiply": "*"
+            }
+            data = f"{first_num}{op_match[op]}{second_num}"
+            result = eval(data)
+            context = {
+                "result": result
+            }
+            return render(request, "result.html", context)  
+
 def index(request):
     return render(request, "index.html")
 
