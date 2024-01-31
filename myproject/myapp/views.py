@@ -9,7 +9,11 @@ def student_details(request, pk):
     return HttpResponse(f"Details Page id of {pk}")
 
 def home(request):
-    return render(request, "home.html")
+    data = {
+        'user': 'Sanni',
+        'totalPoint': 400
+    }
+    return render(request, "home.html", data)
 
 def about(request):
     return render(request, "about.html")
