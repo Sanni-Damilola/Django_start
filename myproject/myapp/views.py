@@ -1,8 +1,64 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http.response import HttpResponse
 from django.views import View
+from .models import Student
 
 # Create your views here.
+
+# get all student
+def allStudent(request):
+    student = Student.objects.all()
+    data = {
+        "students": student
+    }
+    return render(request, "allStudent.html", data)
+
+# get on student
+def getOneStudent(request, pk):
+    student = get_object_or_404(Student, pk=pk)
+    data = {
+        "student": student
+    }
+    return render(request, "student_details.html",data)
+
+# create student
+def createStudent(request):
+    if request.method == "POST":
+        firstName = request.POST["first_name"]
+        lastName = request.post["secondName"]
+        age = request.POST["age"]
+        bioGraphy = request.POST["bioGraphy"]
+
+        Student.objects.create(
+            firstName = firstName,
+            lastName = lastName,
+            age = age,
+            bioGraphy = bioGraphy
+        )
+
+        return redirect("student_list")
+    return render(request, "create_student.html")
+
+# update student
+def studentUpdate(request, pk):
+    student = get_object_or_404(Student, pk=pk)
+    if request.method == "POST":
+        student.firstName = request.POST["first_name"]
+        student.lastName = request.post["secondName"]
+        student.age = request.POST["age"]
+        student.bioGraphy = request.POST["bioGraphy"]
+        student.save()
+
+        return redirect(request, "student_details", pk=pk)
+    return render(request, "student_update.html", {"studebt": student})
+
+# delet student
+def deleteStudent(request, pk):
+    student = get_object_or_404(Student, pk=pk)
+    if request.method == "POST":
+        student.delete()
+        return redirect("student_list")
+    return render(request, "delet_student.html", {"student": student})
 
 class Result(View):
     def get(self, request):

@@ -1,0 +1,13 @@
+<h1>All Student</h1>
+<ul>
+    {% for student in students %}
+        <li>
+            <a href="{% url 'getOneStudent' pk=student.pk %}">
+                {{student.firstName}} {{student.lastName}}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+<br>
+<a href="student/create">Create New Student</a>
