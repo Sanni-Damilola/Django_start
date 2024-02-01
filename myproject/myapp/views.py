@@ -139,16 +139,17 @@ def createStudent(request):
     
 
 def studentUpdate(req, pk):
-    student = get_object_or_404(Student, pk)
+    student = get_object_or_404(Student, pk=pk)
     if req.method == "POST":
-        form = StudentForm(req.POST, instance=student)
+        form = StudentForm(req.POST, instance=Student)
 
         if form.is_valid():
             form.save()
             return redirect("studentUpdate", pk = pk)
     else:
-        form = StudentForm
+        form = StudentForm(instance=Student)
         data = {
-            "student": student
+            "student": student,
+            "form": form
         }
         return render(req, "student_update.html", data)
