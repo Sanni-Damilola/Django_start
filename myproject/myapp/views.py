@@ -46,9 +46,11 @@ def studentUpdate(request, pk):
         student.lastName = request.POST["lastName"]
         student.age = request.POST["age"]
         student.bioGraphy = request.POST["bioGraphy"]
+
         student.save()
 
-        return redirect(request, "studentUpdate", pk=pk)
+        return redirect("getOneStudent", pk = pk)
+    
     return render(request, "student_update.html", {"student": student})
 
 # delet student
