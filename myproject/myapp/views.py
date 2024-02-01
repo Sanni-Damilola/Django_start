@@ -43,12 +43,12 @@ def studentUpdate(request, pk):
     student = get_object_or_404(Student, pk=pk)
     if request.method == "POST":
         student.firstName = request.POST["firstName"]
-        student.lastName = request.post["lastName"]
+        student.lastName = request.POST["lastName"]
         student.age = request.POST["age"]
         student.bioGraphy = request.POST["bioGraphy"]
         student.save()
 
-        return redirect(request, "student_details", pk=pk)
+        return redirect(request, "studentUpdate", pk=pk)
     return render(request, "student_update.html", {"student": student})
 
 # delet student
