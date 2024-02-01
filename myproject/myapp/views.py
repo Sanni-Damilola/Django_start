@@ -126,7 +126,7 @@ def result(request):
         return render(request, "result.html", context)  
 
 
-def createDev(request):
+def createStudent(request):
     if request.method == "POST":
         form = StudentForm(request.POST)
         if form.is_valid():
