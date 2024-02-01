@@ -1,7 +1,8 @@
 <h1>Create A New Student</h1>
 <form action="" method="post">
   {% csrf_token %}
-  <label for="firstName">First Name</label>
+   {% form.as_p %}
+  <!-- <label for="firstName">First Name</label>
   <input type="text" name="firstName" id="firstName" />
   <br />
   <br />
@@ -16,7 +17,6 @@
   <label for="bioGraphy">Biography</label>
   <textarea type="text" name="bioGraphy" id="bioGraphy"> </textarea>
   <br />
-  <br />
+  <br /> -->
   <button type="submit">Create New Student</button>
 </form>
-
