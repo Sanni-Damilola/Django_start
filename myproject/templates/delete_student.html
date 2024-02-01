@@ -1,0 +1,13 @@
+<h1>Delete Student</h1>
+<p>
+  Are You Sure You Want to Delete {{student.firstName}} {{student.lastName}} ?
+</p>
+
+<form action="" method="post">
+  {% csrf_token %}
+  <input type="submit" value="Delete" />
+</form>
+
+<br />
+
+<a href="{% url 'allStudent' %}">Calcel</a>
