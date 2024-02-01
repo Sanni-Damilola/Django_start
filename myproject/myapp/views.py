@@ -28,7 +28,6 @@ def createStudent(request):
         lastName = request.POST["lastName"]
         age = request.POST["age"]
         bioGraphy = request.POST["bioGraphy"]
-
         Student.objects.create(
             firstName = firstName,
             lastName = lastName,
@@ -43,8 +42,8 @@ def createStudent(request):
 def studentUpdate(request, pk):
     student = get_object_or_404(Student, pk=pk)
     if request.method == "POST":
-        student.firstName = request.POST["first_name"]
-        student.lastName = request.post["secondName"]
+        student.firstName = request.POST["firstName"]
+        student.lastName = request.post["lastName"]
         student.age = request.POST["age"]
         student.bioGraphy = request.POST["bioGraphy"]
         student.save()

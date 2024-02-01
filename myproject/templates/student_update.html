@@ -1,0 +1,33 @@
+<h1>Edit A New Student</h1>
+<form action="" method="post">
+  {% csrf_token %}
+  <label for="firstName">First Name</label>
+  <input
+    type="text"
+    name="firstName"
+    id="firstName"
+    value="{{ student.firstName }}"
+  />
+  <br />
+  <br />
+  <label for="lastName">Last Name</label>
+  <input
+    type="text"
+    name="lastName"
+    id="lastName"
+    value="{{ student.lastName }}"
+  />
+  <br />
+  <br />
+  <label for="age">Age</label>
+  <input type="number" name="age" id="age" value="{{ student.age }}" />
+  <br />
+  <br />
+  <label for="bioGraphy">Biography</label>
+  <textarea type="text" name="bioGraphy" id="bioGraphy">
+    {{ student.bioGraphy }}
+  </textarea>
+  <br />
+  <br />
+  <button type="submit">Update Student</button>
+</form>
