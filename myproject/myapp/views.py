@@ -50,7 +50,7 @@ def studentUpdate(request, pk):
         student.save()
 
         return redirect(request, "student_details", pk=pk)
-    return render(request, "student_update.html", {"studebt": student})
+    return render(request, "student_update.html", {"student": student})
 
 # delet student
 def deleteStudent(request, pk):
@@ -58,7 +58,7 @@ def deleteStudent(request, pk):
     if request.method == "POST":
         student.delete()
         return redirect("student_list")
-    return render(request, "delet_student.html", {"student": student})
+    return render(request, "delete_student.html", {"student": student})
 
 class Result(View):
     def get(self, request):

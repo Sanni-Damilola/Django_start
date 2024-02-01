@@ -1,0 +1,17 @@
+<h1>Create A New Student</h1>
+<form action="" method="post">
+  {% csrf_token %}
+  <label for="firstName">First Name</label>
+  <input type="text" name="firstName" id="firstName" />
+  <br />
+  <label for="lastName">Last Name</label>
+  <input type="text" name="lastName" id="lastName" />
+  <br />
+  <label for="age">Age</label>
+  <input type="number" name="age" id="age" />
+  <br />
+  <label for="bioGraphy">Biography</label>
+  <textarea type="text" name="bioGraphy" id="bioGraphy"> </textarea>
+  <br />
+  <button type="submit">Create New Student</button>
+</form>

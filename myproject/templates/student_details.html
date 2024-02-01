@@ -1,0 +1,11 @@
+<h1>{{student.firstName}}'s Details</h1>
+
+<p>Full Name: {{student.firstName}} {{student.lastName}}</p>
+<p>Age: {{student.age}}</p>
+<p>Biography: {{student.bioGraphy}}</p>
+<br />
+<a href="{% url 'studentUpdate' pk=student.pk %}">Edit</a>
+<br />
+<a href="{% url 'deleteStudent' pk=student.pk %}">Delete</a>
+<br />
+<a href="{% url 'allStudent' %}">Go Back</a>

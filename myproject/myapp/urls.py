@@ -15,6 +15,6 @@ urlpatterns = [
     path("student", allStudent, name="allStudent"),
     path("stuent/<int:pk>", getOneStudent, name="getOneStudent"),
     path("student/<int:pk>/delete", deleteStudent, name="deleteStudent"),
-    path("update_student", studentUpdate, name="studentUpdate"),
+    path("student/<int:pk>/update", studentUpdate, name="studentUpdate"),
     path("delete_student", deleteStudent, name="deleteStudent")
 ]
