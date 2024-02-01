@@ -136,3 +136,19 @@ def createStudent(request):
     else:
         form = StudentForm()
         return render(request, "create_student.html", {"form": form})    
+    
+
+def studentUpdate(req, pk):
+    student = get_object_or_404(Student, pk)
+    if req.method == "POST":
+        form = StudentForm(req.POST, instance=student)
+
+        if form.is_valid():
+            form.save()
+            return redirect("studentUpdate", pk = pk)
+    else:
+        form = StudentForm
+        data = {
+            "student": student
+        }
+        return render(req, "student_update.html", data)
