@@ -24,8 +24,8 @@ def getOneStudent(request, pk):
 # create student
 def createStudent(request):
     if request.method == "POST":
-        firstName = request.POST["first_name"]
-        lastName = request.post["secondName"]
+        firstName = request.POST["firstName"]
+        lastName = request.POST["lastName"]
         age = request.POST["age"]
         bioGraphy = request.POST["bioGraphy"]
 
@@ -36,7 +36,7 @@ def createStudent(request):
             bioGraphy = bioGraphy
         )
 
-        return redirect("student_list")
+        return redirect("allStudent")
     return render(request, "create_student.html")
 
 # update student
