@@ -51,3 +51,8 @@ def dashboard(req):
         return redirect("login") 
         
     return render(req, "dashboard.html")
+
+
+def logout(req):
+    auth.logout(req)
+    return redirect("/")
