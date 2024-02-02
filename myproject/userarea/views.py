@@ -28,21 +28,22 @@ def register(req):
     return render(req, "register.html")
 
 
-def login(req):
-    if req.method == "POSt":
-        email = req.POST["email"]
-        password = req.POST["password"]
+def login(request):
+    if request.method == "POST":
+        email = request.POST["email"]
+        password = request.POST["password"]
 
         user = auth.authenticate(email=email, password=password)
+       
         if user is not None:
-            auth.login(req, user)
+            auth.login(request, user)
             return redirect("dashboard")
         else:
-            messages.info(req, "Invalid Credentials")
+            messages.info(request, "Invalid credentials. Please try again.")
+            return redirect("login")
 
-    return render(req, "login.html")
 
-
+    return render(request, "login.html")
 
 def dashboard(req):
     if not req.user.is_authenticated:

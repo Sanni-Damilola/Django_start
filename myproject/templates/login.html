@@ -1,7 +1,12 @@
 <h1>Login</h1>
+{% for message in messages %}
+
+<span style="color: red; font-weight: bold"> {{ message }} </span>
+
+{% endfor %}
 <form action="" method="post">
   {% csrf_token %}
-  <label for="email">emai</label>
+  <label for="email">email</label>
   <input type="email" name="email" id="email" />
   <br />
   <br />
