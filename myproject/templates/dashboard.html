@@ -1,6 +1,12 @@
 <h1>DashBoard</h1>
-<b>
-    {% Hi {{ user.get_name }} %}
-</b>
+
+{% if user.is_authenticated %}
+
+<b> {% Hi {{ user.get_name }} %} </b>
 
 <a href="{% url 'logout' %}">Logout</a>
+{% else %}
+<b> You're not logged in </b>
+
+<a href="{% url 'logout' %}">Login</a>
+{% endif %}

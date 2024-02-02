@@ -20,7 +20,8 @@ def register(req):
                     email = email,
                     password = password,
                 )  
-
+                user.set_password(password)
+                user.is_active = True
                 user.save()
                 return redirect("login")
         return render(req, "register.html")
