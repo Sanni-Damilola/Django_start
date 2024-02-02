@@ -3,8 +3,6 @@ from django.contrib.auth.models import User, auth
 from django.contrib import messages
 
 # Create your views here.
-
-
 def register(req):
     if req.method == "POST":
         name = req.POST["name"]
@@ -27,4 +25,4 @@ def register(req):
                 return redirect("login")
         return render(req, "register.html")
             
-    return render()
+    return render(req, "regsiter.html")
