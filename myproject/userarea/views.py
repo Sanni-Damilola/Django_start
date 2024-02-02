@@ -37,6 +37,8 @@ def login(req):
         if user is not None:
             auth.login(req.user)
             return redirect("dashboard")
+        else:
+            messages.info(req, "Invalid Credentials")
 
     return render(req, "login.html")
 
