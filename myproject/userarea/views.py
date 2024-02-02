@@ -35,7 +35,7 @@ def login(req):
 
         user = auth.authenticate(email=email, password=password)
         if user is not None:
-            auth.login(req.user)
+            auth.login(req, user)
             return redirect("dashboard")
         else:
             messages.info(req, "Invalid Credentials")
@@ -45,4 +45,8 @@ def login(req):
 
 
 def dashboard(req):
+    if not req.user.is_authenticated:
+        messages.info(req, "You Have to Login")
+        return redirect("login") 
+        
     return render(req, "dashboard.html")
