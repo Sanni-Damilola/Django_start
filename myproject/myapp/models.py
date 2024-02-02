@@ -26,3 +26,13 @@ class Course(models.Model):
     def __str__(self) -> str:
         return f"{self.title}"
     
+
+
+class Candidate(models.Model):
+    name = models.CharField(max_length=100)
+    courses = models.ManyToManyField(Course, related_name="student")
+
+    def __str__(self) -> str:
+        return f"{self.name}"
+    
+    
