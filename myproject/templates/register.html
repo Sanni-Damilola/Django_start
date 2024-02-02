@@ -1,10 +1,10 @@
 <h1>Create A New USer</h1>
 <form action="" method="post">
-  {{% for message in messages %}}
+  {% for message in messages %}
 
   <span style="color: red; font-weight: bold;"> {{ message }} </span>
 
-  {{% endfor }} {% csrf_token %} {{ form.as_p }}
+  {% endfor %}
   <label for="name">name</label>
   <input type="text" name="name" id="name" />
   <br />

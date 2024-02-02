@@ -25,7 +25,7 @@ def register(req):
                 return redirect("login")
         return render(req, "register.html")
             
-    return render(req, "regsiter.html")
+    return render(req, "register.html")
 
 
 def login(req):
