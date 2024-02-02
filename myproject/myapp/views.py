@@ -1,10 +1,21 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http.response import HttpResponse
 from django.views import View
-from .models import Student
+from .models import Student, Teacher, Course, Candidate
 from .forms import StudentForm
 
 # Create your views here.
+
+
+
+
+
+
+
+
+
+
+
 
 # get all student
 def allStudent(request):
