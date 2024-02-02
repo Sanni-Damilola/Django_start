@@ -29,4 +29,18 @@ def register(req):
 
 
 def login(req):
+    if req.method == "POSt":
+        email = req.POST["email"]
+        password = req.POST["password"]
+
+        user = auth.authenticate(email=email, password=password)
+        if user is not None:
+            auth.login(req.user)
+            return redirect("dashboard")
+
     return render(req, "login.html")
+
+
+
+def dashboard(req):
+    return render(req, "dashboard.html")
