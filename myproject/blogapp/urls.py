@@ -3,6 +3,6 @@ from .views import archive, details
 
 
 urlpatterns = [
-    path("archive", archive, name="archive"),
+    path("", archive, name="archive"),
     path("detail/<int:pk>", details, name="details")
 ]

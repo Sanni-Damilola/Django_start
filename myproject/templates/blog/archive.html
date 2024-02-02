@@ -1,0 +1,11 @@
+{% extends './base2.html' %}
+{% block title %} Blog Archive Page {% endblock %} 
+{% block content %}
+    {% for blog in blogs %}
+        <div id="blog-single">
+        <h3>{{blog.title}}</h3>
+        <p>{{blog.excerpt|truncatechars:80}}</p>
+        <a href="{% url 'blog detail' pk=blog.pk %}">Read More</a>
+        </div>
+    {% endfor %}
+{% endblock %}
