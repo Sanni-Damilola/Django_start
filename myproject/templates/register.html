@@ -1,16 +1,17 @@
 <h1>Create A New USer</h1>
+{% for message in messages %}
+
+<span style="color: red; font-weight: bold;"> {{ message }} </span>
+
+{% endfor %}
 <form action="" method="post">
-  {% for message in messages %}
-
-  <span style="color: red; font-weight: bold;"> {{ message }} </span>
-
-  {% endfor %}
+  {% csrf_token %}
   <label for="name">name</label>
   <input type="text" name="name" id="name" />
   <br />
   <br />
   <label for="email">emai</label>
-  <input type="text" name="email" id="email" />
+  <input type="email" name="email" id="email" />
   <br />
   <br />
   <label for="password">password</label>
@@ -18,7 +19,7 @@
   <br />
   <br />
   <label for="confirmpassword">confirm password</label>
-  <input type="confirmpassword" name="confirmpassword" id="confirmpassword" />
+  <input type="password" name="confirmpassword" id="confirmpassword" />
   <br />
   <br />
   <button type="submit">Create New User</button>

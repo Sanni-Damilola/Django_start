@@ -11,7 +11,7 @@ def register(req):
         confirmpassword = req.POST["confirmpassword"]
 
         if password == confirmpassword:
-            if User.objects.filter(email):
+            if User.objects.filter(email=email).exists():
                 messages.info(req, "Email already exists")
             else:
                 # create user
