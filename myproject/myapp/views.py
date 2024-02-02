@@ -7,7 +7,22 @@ from .forms import StudentForm
 # Create your views here.
 
 
+def teacherDetails(req, teacherID):
+    teacher = Teacher.objects.get(pk=teacherID)
+    courses = teacher.courses.all()
+    data = {
+        "teacher": teacher,
+        "courses": courses
+    }
 
+
+def courseDetails(req, courseID):
+    course = Course.objects.get(pk=courseID)
+    student = course.student.all()
+    data = {
+        "students": student,
+        "course": course
+    }
 
 
 
