@@ -1,0 +1,23 @@
+<h1>Create A New USer</h1>
+<form action="" method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <label for="name">name</label>
+  <input type="text" name="name" id="name" />
+  <br />
+  <br />
+  <label for="email">emai</label>
+  <input type="text" name="email" id="email" />
+  <br />
+  <br />
+  <label for="password">password</label>
+  <input type="password" name="password" id="password" />
+  <br />
+  <br />
+  <label for="confirmpassword">confirm password</label>
+  <input type="confirmpassword" name="confirmpassword" id="confirmpassword" />
+  <br />
+  <br />
+  <button type="submit">Create New User</button>
+</form>
+
+
