@@ -6,4 +6,3 @@ def archive(req):
 
 def details(req):
     return render(req, "blog/details.html")
-git commit -m "feat: Create and integrate blog app"
