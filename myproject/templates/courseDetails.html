@@ -1,0 +1,12 @@
+<h1>Course Title {{ course.title }} </h1>
+<h3>Student enrolled in {{ course.title }} </h3>
+
+<ul>
+    {% for student in students %}
+
+    <li>
+        {{ student.name }}
+    </li>
+
+    {% endfor %}
+</ul>

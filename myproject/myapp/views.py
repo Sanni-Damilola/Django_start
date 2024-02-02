@@ -21,7 +21,7 @@ def courseDetails(req, courseID):
     student = course.student.all()
     data = {
         "students": student,
-        "course": course
+        "courses": course
     }
 
 

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, student_details, home, about, calculate,notfound, result, Result, allStudent, studentUpdate, createStudent, getOneStudent, deleteStudent
+from .views import index, student_details, home, about, calculate,notfound, result, Result, allStudent, studentUpdate, createStudent, getOneStudent, deleteStudent, teacherDetails, courseDetails
 
 urlpatterns = [
     path("", index, name="index"),
@@ -16,4 +16,8 @@ urlpatterns = [
     path("stuent/<int:pk>", getOneStudent, name="getOneStudent"),
     path("student/<int:pk>/update", studentUpdate, name="studentUpdate"),
     path("student/<int:pk>/delete", deleteStudent, name="deleteStudent"),
+
+    # Courses
+    path("teacher/<int:teacherID>", teacherDetails, name="teacherDetails"),
+    path("course/<int:courseID>", courseDetails, name="courseDetails")
 ]
