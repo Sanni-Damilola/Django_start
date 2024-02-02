@@ -14,6 +14,7 @@ def teacherDetails(req, teacherID):
         "teacher": teacher,
         "courses": courses
     }
+    return render(req, "teacherDetails.html", data)
 
 
 def courseDetails(req, courseID):
@@ -23,6 +24,7 @@ def courseDetails(req, courseID):
         "students": student,
         "courses": course
     }
+    return render(req, "courseDetail.html", data)
 
 
 
