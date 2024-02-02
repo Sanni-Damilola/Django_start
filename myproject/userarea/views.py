@@ -26,3 +26,7 @@ def register(req):
         return render(req, "register.html")
             
     return render(req, "regsiter.html")
+
+
+def login(req):
+    return render(req, "login.html")
