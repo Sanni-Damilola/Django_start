@@ -2,3 +2,4 @@
 2: create virtual environment (virtualenv then the name of the folder)
 3: activate the virtual environment (source Scripts/activa
 te)
+4: pip install django
