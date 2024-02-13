@@ -1,2 +1,4 @@
 1: create a virtual environment: pip install virtualenv
 2: create virtual environment (virtualenv then the name of the folder)
+3: activate the virtual environment (source Scripts/activa
+te)
