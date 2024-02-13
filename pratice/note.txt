@@ -1,0 +1,2 @@
+1: create a virtual environment: pip install virtualenv
+2: create virtual environment (virtualenv then the name of the folder)
