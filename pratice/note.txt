@@ -3,4 +3,4 @@
 3: activate the virtual environment (source Scripts/activa
 te)
 4: pip install django
-5: create a django project (django-admin startroject then tha name of the project )
+5: create a django project (django-admin startroject then tha name of the project)
