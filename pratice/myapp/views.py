@@ -90,3 +90,16 @@ def deleteAUser(req, pk):
         return JsonResponse({'message': 'User Deleted'})
     else:
         return JsonResponse({'error': 'Invalid Method'}, status=405)
+    
+@csrf_exempt
+def deleteAllUsers(req):
+    if req.method == 'DELETE':
+        MyModel.objects.all().delete()
+        return JsonResponse({'message': 'Successfully Deleted All Users'})
+    else:
+        return JsonResponse({'error': 'Method Not Allowed'})
+
+
+
+def handle404Route(request):
+    return JsonResponse({'error': f'This {request.path} Does Not Exist'}, status=404)
