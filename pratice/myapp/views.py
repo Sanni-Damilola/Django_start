@@ -39,3 +39,40 @@ def getAllUser(req):
     if req.method == "GET":
         data = MyModel.objects.all().values()
         return JsonResponse({'data': list(data)})
+    else:
+        return HttpResponse("Invalid Request")
+    
+
+@csrf_exempt
+def updateUser(req, pk):
+    if req.method == "PATCH":
+        try:
+            data = json.loads(req.body.decode('utf-8'))
+        
+        except json.JSONDecodeError:
+            return HttpResponse("Inavlid JSON data")
+        
+        try:
+            my_model = MyModel.objects.get(pk=pk)
+        except:
+            return JsonResponse({'message': "Data Not Found"})
+        
+        name = data.get('name')
+        description  = data.get('description')
+
+        if name is not None:
+            my_model.name = name
+        if description is not None:
+            my_model.description = description
+        
+        my_model.save()
+
+        jsonData = {
+            'id': my_model.pk,
+            'name': my_model.name,
+            'desciption': my_model.description
+        }
+
+        return JsonResponse(jsonData, status=200)
+    else:
+        HttpResponse('Invalid Method')
