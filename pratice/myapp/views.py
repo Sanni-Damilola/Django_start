@@ -101,5 +101,5 @@ def deleteAllUsers(req):
 
 
 
-def handle404Route(request):
-    return JsonResponse({'error': f'This {request.path} Does Not Exist'}, status=404)
+def handle404Route(req):
+    return JsonResponse({'error': f'This {req.path} Does Not Exist'}, status=404)
