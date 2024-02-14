@@ -1,0 +1,5 @@
+1: django-admin startproject myproject
+2: cd myproject
+python manage.py startapp myapp
+4: python manage.py makemigrations
+python manage.py migrate
