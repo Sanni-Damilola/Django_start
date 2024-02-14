@@ -1,7 +1,6 @@
 from django.urls import path
-from .views import my_model_list
-
+from .views import createUser
 
 urlpatterns = [
-    path('', my_model_list, name="my_model_lost")
+    path('create', createUser, name='createUser')
 ]
