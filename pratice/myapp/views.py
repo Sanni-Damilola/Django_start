@@ -33,3 +33,9 @@ def createUser(req):
     else:
         return HttpResponse("Invaid Method For Request", status=405)
     
+
+
+def getAllUser(req):
+    if req.method == "GET":
+        data = MyModel.objects.all().values()
+        return JsonResponse({'data': list(data)})
