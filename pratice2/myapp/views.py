@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_list_or_404
 from .models import MyModel
 from django.http import HttpResponse, JsonResponse
 import json
 from django.views.decorators.csrf import csrf_exempt
+from django.core.serializers import serialize
 
 # Create your views here.
 
@@ -41,4 +42,17 @@ def create(req):
         return JsonResponse({'error': 'Invalid Method'}, status=405)
 
 
-# def
+def getOneUser(request, pk):
+    if request.method == "GET":
+        try:
+            user = MyModel.objects.get(pk=pk)
+            data = {
+                'id': user.pk,
+                'name': user.name,
+                'age': user.age
+            }
+            return JsonResponse(data)
+        except MyModel.DoesNotExist:
+            return JsonResponse({'error': 'User not found'}, status=404)
+    else:
+        return JsonResponse({'error': 'Invalid Method'}, status=405)
