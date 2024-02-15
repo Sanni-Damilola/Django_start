@@ -42,7 +42,9 @@ def create(req):
         return JsonResponse({'error': 'Invalid Method'}, status=405)
 
 
+@csrf_exempt
 def getOneUser(request, pk):
+    
     if request.method == "GET":
         try:
             user = MyModel.objects.get(pk=pk)
@@ -54,5 +56,37 @@ def getOneUser(request, pk):
             return JsonResponse(data)
         except MyModel.DoesNotExist:
             return JsonResponse({'error': 'User not found'}, status=404)
+    else:
+        return JsonResponse({'error': 'Invalid Method'}, status=405)
+    
+
+@csrf_exempt
+def updateUser(req, pk):
+    if req.method == "PATCH":
+        try:
+            model = json.loads(req.body.decode('utf-8'))
+        except json.JSONDecodeError:
+            return JsonResponse({'error': 'Expected Json Data'}, status=400)
+        
+        try:
+            my_model = MyModel.objects.get(pk=pk)
+        except:
+            return JsonResponse({'error': 'User Not Found'}, status=404)
+    
+
+        name = model.get('name')
+        age = model.get('age')
+
+        if name is not None or age is not None:
+            my_model.name = name
+            my_model.age = age
+        
+        my_model.save()
+        data = {
+            'id': my_model.pk,
+            'name': my_model.name,
+            'age': my_model.age
+        }
+        return JsonResponse(data)
     else:
         return JsonResponse({'error': 'Invalid Method'}, status=405)
