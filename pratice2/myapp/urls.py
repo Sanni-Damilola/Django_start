@@ -1,5 +1,5 @@
 from  django.urls import path
-from .views import getAllUsers, create, getOneUser, updateUser, deleteUser
+from .views import getAllUsers, create, getOneUser, updateUser, deleteUser, deleteAllUser
 
 
 urlpatterns = [
@@ -7,5 +7,6 @@ urlpatterns = [
     path('create', create, name='create'),
     path('getoneuser/<int:pk>', getOneUser, name='getOneUser'),
     path('update/<int:pk>', updateUser, name='updateUser'),
-    path('deleteuser/<int:pk>', deleteUser, name='deleteUser')
+    path('deleteuser/<int:pk>', deleteUser, name='deleteUser'),
+    path('delete', deleteAllUser, name='deleteAllUser')
 ]

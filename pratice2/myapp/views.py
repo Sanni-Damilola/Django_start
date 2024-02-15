@@ -104,3 +104,11 @@ def deleteUser(req, pk):
         return JsonResponse({'message': 'User Deleted'})
     else:
         return JsonResponse({'error': 'Method Not Allowed'})
+
+@csrf_exempt
+def deleteAllUser(req):
+    if req.method == "DELETE":
+        MyModel.objects.all().delete()
+        return JsonResponse({'message': 'Successfully Deleted All Users'})
+    else:
+        return JsonResponse({'error': 'Method Not Allowed'})
