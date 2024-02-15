@@ -90,3 +90,17 @@ def updateUser(req, pk):
         return JsonResponse(data)
     else:
         return JsonResponse({'error': 'Invalid Method'}, status=405)
+
+
+@csrf_exempt
+def deleteUser(req, pk):
+    try:
+        my_model = MyModel.objects.all().get(pk=pk)
+    except: 
+        return JsonResponse({'error': 'User Not Found'}, status=404)
+
+    if req.method == "DELETE":
+        my_model.delete()
+        return JsonResponse({'message': 'User Deleted'})
+    else:
+        return JsonResponse({'error': 'Method Not Allowed'})
