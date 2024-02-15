@@ -32,7 +32,6 @@ def createUser(req):
         
     else:
         return HttpResponse("Invaid Method For Request", status=405)
-    
 
 
 def getAllUser(req):
@@ -41,7 +40,7 @@ def getAllUser(req):
         return JsonResponse({'data': list(data)})
     else:
         return HttpResponse("Invalid Request")
-    
+
 
 @csrf_exempt
 def updateUser(req, pk):
@@ -90,7 +89,7 @@ def deleteAUser(req, pk):
         return JsonResponse({'message': 'User Deleted'})
     else:
         return JsonResponse({'error': 'Invalid Method'}, status=405)
-    
+
 @csrf_exempt
 def deleteAllUsers(req):
     if req.method == 'DELETE':
@@ -100,6 +99,5 @@ def deleteAllUsers(req):
         return JsonResponse({'error': 'Method Not Allowed'})
 
 
-
-def handle404Route(req):
+def handle404Route(req, exception):
     return JsonResponse({'error': f'This {req.path} Does Not Exist'}, status=404)
